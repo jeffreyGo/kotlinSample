@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
+import org.jetbrains.anko.find
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,9 +28,13 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate")
         setContentView(R.layout.activity_main)
 
-        val forecastList = findViewById(R.id.forecast_list) as RecyclerView
+//        val forecastList = findViewById(R.id.forecast_list) as RecyclerView
+
+        // with anko
+        val forecastList : RecyclerView = find(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
         forecastList.adapter = ForecastListAdapter(items)
+
     }
 
     override fun onStart() {
@@ -48,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         myPerson.familyName = "LEE"
         val name = myPerson.name;
         toast(this, name, Toast.LENGTH_SHORT)
-        toast(this, myPerson.familyName, Toast.LENGTH_SHORT)
+        longToast(this, myPerson.familyName)
 
     }
 

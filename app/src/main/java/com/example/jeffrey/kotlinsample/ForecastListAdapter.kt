@@ -1,10 +1,8 @@
 package com.example.jeffrey.kotlinsample
 
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
 /**
  * Created by jeffrey on 2016. 7. 19..
  */
