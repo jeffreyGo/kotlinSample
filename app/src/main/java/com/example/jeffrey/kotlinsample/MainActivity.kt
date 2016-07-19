@@ -9,6 +9,8 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
+    // val immutable  - read only
+    // var mutable
     private val items = listOf(
             "Mon 6/23 - Sunny - 31/17",
             "Tue 6/24 - Foggy - 21/8",
@@ -33,13 +35,21 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "onStart")
-        toast(this, "start", Toast.LENGTH_SHORT)
+//        toast(this, "start", Toast.LENGTH_SHORT)
     }
 
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
-        toast(this, "resume", Toast.LENGTH_SHORT)
+//        toast(this, "resume", Toast.LENGTH_SHORT)
+
+        var myPerson = MyPerson()
+        myPerson.name = "jeffrey"
+        myPerson.familyName = "LEE"
+        val name = myPerson.name;
+        toast(this, name, Toast.LENGTH_SHORT)
+        toast(this, myPerson.familyName, Toast.LENGTH_SHORT)
+
     }
 
     override fun onPause() {
