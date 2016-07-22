@@ -6,7 +6,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
+import org.jetbrains.anko.custom.async
 import org.jetbrains.anko.find
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,6 +58,14 @@ class MainActivity : AppCompatActivity() {
         toast(this, name, Toast.LENGTH_SHORT)
         longToast(this, myPerson.familyName)
 
+
+        async() {
+            Request("http://www.naver.com").run()
+            uiThread {
+                longToast("Request performed")
+            }
+
+        }
     }
 
     override fun onPause() {
